@@ -14,7 +14,8 @@ import net.md_5.bungee.config.YamlConfiguration;
 public class JoinFriendCommand extends Command {
 	ElliozBungee b;
 	Saver SaveFriends;
-	public static Saver SaveFriend;
+	public static Saver SaveFriendDemandeur;
+	public static Saver SaveFriendReceveur;
 	public JoinFriendCommand() {
 		super("friend","");
 	}
@@ -23,32 +24,43 @@ public class JoinFriendCommand extends Command {
 	@Override
 	  public void execute(CommandSender sender, String[] strings) {
 	    	  if(sender instanceof ProxiedPlayer) {
-	    		  SaveFriend = new Saver(new File("Friends.properties"));
+	    		  CommandSender playerdemandeur = sender;
+	    		  String playerecois = strings[0];
+	    		  SaveFriendDemandeur = new Saver(new File(playerdemandeur + "-friends.properties"));
+	    		  SaveFriendReceveur = new Saver(new File(playerdemandeur + "-friends.properties"));
 	    		  
-	    		/*  String playercheck = strings[0];
-	    		  ProxiedPlayer player = ProxyServer.getInstance().getPlayer(playercheck);
+	    		  ProxiedPlayer player = ProxyServer.getInstance().getPlayer(playerecois);
 	    		  if (player == null)
 	    		  {
-	    		      System.out.println("Le joueur (" + playercheck + ") n'est pas en ligne !");
+	    		      System.out.println("Le joueur (" + playerecois + ") n'est pas en ligne !");
 	    		  } else {
-	    			  System.out.println("Le joueur (" + playercheck + ") est en ligne !");
-	    		  }*/
+	    			  System.out.println("Le joueur (" + playerecois + ") est en ligne !");
+	    		  }
+	    		  String playerdemandeurfriendslot1 = SaveFriendDemandeur.get("friendslot1");
+	    		  String playerdemandeurfriendslot2 = SaveFriendDemandeur.get("friendslot2");
+	    		  String playerdemandeurfriendslot3 = SaveFriendDemandeur.get("friendslot3");
+	    		  String playerdemandeurfriendslot4 = SaveFriendDemandeur.get("friendslot4");
+	    		  String playerdemandeurfriendslot5 = SaveFriendDemandeur.get("friendslot5");
 	    		  
-	    		  
-	    		  SaveFriend.set("Test", "cc");
-	    		  SaveFriend.set("Test", "coc");
+	    		  if(playerdemandeurfriendslot1 == null) {
+	    			 System.out.println("Slot 1 de " + playerdemandeur + " : Pas définit, mise en place.");
+	    			 SaveFriendDemandeur.set("friendslot1", "");
+	    			 System.out.println("Slot 1 de " + playerdemandeur + " : Définit !.");
+	    		  }
+	    		  //SaveFriend.set("Test", "cc");
+	    		  //SaveFriend.set("Test", "coc");
 	    		  //if(b.getProxy().getPlayer(strings[0]).isConnected() != false) {
 	    		  //ProxiedPlayer senderP = (ProxiedPlayer) sender;
 	    		  //ProxiedPlayer requestedP = b.getProxy().getPlayer(strings[0]);
 	    		  //SaveFriends = new Saver(new File("playerfriends.properties"));		
-	      if(strings.length <= 1) {
-	    	  if(sender instanceof ProxiedPlayer) {
+	      //if(strings.length <= 1) {
+	    	  //if(sender instanceof ProxiedPlayer) {
 	    		  
-	    		  ProxiedPlayer senderP = (ProxiedPlayer) sender;
-                  ProxiedPlayer requestedP = ProxyServer.getInstance().getPlayer(strings[0]);
+	    		  //ProxiedPlayer senderP = (ProxiedPlayer) sender;
+                  //ProxiedPlayer requestedP = ProxyServer.getInstance().getPlayer(strings[0]);
 
 	    		  
-	    		  SaveFriends = new Saver(new File("playerfriends.properties"));
+	    		  //SaveFriends = new Saver(new File("playerfriends.properties"));
 	    		 //SaveFriends.set(sender.getName(), requestedP.getName());
 	    		  
 	    		  
@@ -82,6 +94,4 @@ public class JoinFriendCommand extends Command {
 	    	  }
 	  }
 
-	    	  }
-	 }
 }
