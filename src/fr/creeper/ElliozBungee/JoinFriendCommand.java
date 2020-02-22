@@ -18,11 +18,18 @@ public class JoinFriendCommand extends Command {
 	 @SuppressWarnings("deprecation")
 	@Override
 	  public void execute(CommandSender sender, String[] strings) {
+		 ProxiedPlayer requestedP = null;
 	      if(strings.length <= 1) {
 	    	  if(sender instanceof ProxiedPlayer) {
-	    		  if(b.getProxy().getPlayer(strings[0]).isConnected() != false) {
+	    		  
 	    		  ProxiedPlayer senderP = (ProxiedPlayer) sender;
-	    		  ProxiedPlayer requestedP = b.getProxy().getPlayer(strings[0]);
+	    		 
+	    		  for(ProxiedPlayer p : b.getProxy().getPlayers()) {
+	    			  if(p.getName().equalsIgnoreCase(strings[0])) {
+	    				  requestedP = p;
+	    			  }
+	    		  }
+	    		  
 	    		  SaveFriends = new Saver(new File("playerfriends.properties"));
 	    		 //SaveFriends.set(sender.getName(), requestedP.getName());
 	    		  
@@ -57,4 +64,4 @@ public class JoinFriendCommand extends Command {
 	    	  }
 	      }
 	  }
-}
+
