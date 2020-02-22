@@ -6,6 +6,7 @@ public class ElliozBungee extends Plugin {
 		System.out.println("Plugin Activé !");
 	    getProxy().getPluginManager().registerCommand(this, new TestCommand());
 	    getProxy().getPluginManager().registerCommand(this, new CreateCommand());
+	    getProxy().getPluginManager().registerCommand(this, new JoinFriendCommand());
 	}
 	public void onDisable() {
 		System.out.println("Plugin Désactivé !");

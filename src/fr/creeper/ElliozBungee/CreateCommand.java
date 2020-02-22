@@ -66,13 +66,18 @@ public class CreateCommand extends Command {
 		File file = new File("worldplayer.properties");
 
 		if (file.exists()) {
-			SavePlayerWorld.set(player.getDisplayName(), "Dev" + Srv);
-			target = ProxyServer.getInstance().getServerInfo(SavePlayerWorld.get(player.getDisplayName()));
-			System.out.println("Pinaple !");
-			player.connect(target);
-
+			if(target == null) {
+				// Le Joueur N'a Pas Encore Eu De Monde
+				SavePlayerWorld.set(player.getDisplayName(), "Dev" + Srv);
+				target = ProxyServer.getInstance().getServerInfo(SavePlayerWorld.get(player.getDisplayName()));
+				player.connect(target);
+			} else {
+				// Le Joueur A Un Monde
+				target = ProxyServer.getInstance().getServerInfo(SavePlayerWorld.get(player.getDisplayName()));
+				player.connect(target);
+			}
 		} else {
-			System.out.println("Apple !");
+			// Le Fichier Vient Juste D'être Créé
 			SavePlayerWorld.set(player.getDisplayName(), "Dev" + Srv);
 			target = ProxyServer.getInstance().getServerInfo(SavePlayerWorld.get(player.getDisplayName()));
 			player.connect(target);
