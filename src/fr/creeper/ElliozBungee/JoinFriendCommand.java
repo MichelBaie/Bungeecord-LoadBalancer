@@ -20,7 +20,7 @@ public class JoinFriendCommand extends Command {
 	  public void execute(CommandSender sender, String[] strings) {
 	      if(strings.length <= 1) {
 	    	  if(sender instanceof ProxiedPlayer) {
-	    		  if(b.getProxy().getPlayer(strings[0]) != null) {
+	    		  if(b.getProxy().getPlayer(strings[0]).isConnected() != false) {
 	    		  ProxiedPlayer senderP = (ProxiedPlayer) sender;
 	    		  ProxiedPlayer requestedP = b.getProxy().getPlayer(strings[0]);
 	    		  SaveFriends = new Saver(new File("playerfriends.properties"));
