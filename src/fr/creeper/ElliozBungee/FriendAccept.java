@@ -22,7 +22,7 @@ public class FriendAccept extends Command {
 				ProxiedPlayer senderP = p.friends.get(requestedP);
 				senderP.sendMessage("[Ellioz Friends] " + requestedP.getName() + " à accepté votre requête !");
 				senderP.sendMessage("[Ellioz Friends] Toi et " + requestedP.getName() + " êtes maitenant amis.");
-				senderP.sendMessage("[Ellioz Friends] " + requestedP.getName() + " à accepté votre requête !");
+				requestedP.sendMessage("[Ellioz Friends] Toi et " + senderP.getName() + " êtes maitenant amis.");
 			}
 			}
 		}
