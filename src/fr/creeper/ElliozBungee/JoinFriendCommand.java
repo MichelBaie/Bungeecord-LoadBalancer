@@ -3,6 +3,7 @@ package fr.creeper.ElliozBungee;
 import java.io.File;
 
 import net.md_5.bungee.api.CommandSender;
+import net.md_5.bungee.api.ProxyServer;
 import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.TextComponent;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
@@ -18,17 +19,13 @@ public class JoinFriendCommand extends Command {
 	 @SuppressWarnings("deprecation")
 	@Override
 	  public void execute(CommandSender sender, String[] strings) {
-		 ProxiedPlayer requestedP = null;
+		
 	      if(strings.length <= 1) {
 	    	  if(sender instanceof ProxiedPlayer) {
 	    		  
 	    		  ProxiedPlayer senderP = (ProxiedPlayer) sender;
-	    		 
-	    		  for(ProxiedPlayer p : b.getProxy().getPlayers()) {
-	    			  if(p.getName().equalsIgnoreCase(strings[0])) {
-	    				  requestedP = p;
-	    			  }
-	    		  }
+                  ProxiedPlayer requestedP = ProxyServer.getInstance().getPlayer(strings[0]);
+
 	    		  
 	    		  SaveFriends = new Saver(new File("playerfriends.properties"));
 	    		 //SaveFriends.set(sender.getName(), requestedP.getName());
