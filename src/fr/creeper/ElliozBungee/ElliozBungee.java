@@ -1,5 +1,7 @@
 package fr.creeper.ElliozBungee;
 
+
+
 import net.md_5.bungee.api.plugin.Plugin;
 public class ElliozBungee extends Plugin {
 	public void onEnable() {
