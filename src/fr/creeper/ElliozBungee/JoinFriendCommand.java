@@ -14,6 +14,7 @@ import net.md_5.bungee.config.YamlConfiguration;
 public class JoinFriendCommand extends Command {
 	ElliozBungee b;
 	Saver SaveFriends;
+	public static Saver SaveFriend;
 	public JoinFriendCommand() {
 		super("friend","");
 	}
@@ -22,18 +23,20 @@ public class JoinFriendCommand extends Command {
 	@Override
 	  public void execute(CommandSender sender, String[] strings) {
 	    	  if(sender instanceof ProxiedPlayer) {
+	    		  SaveFriend = new Saver(new File("Friends.properties"));
 	    		  
-	    		  String playercheck = strings[0];
+	    		/*  String playercheck = strings[0];
 	    		  ProxiedPlayer player = ProxyServer.getInstance().getPlayer(playercheck);
 	    		  if (player == null)
 	    		  {
 	    		      System.out.println("Le joueur (" + playercheck + ") n'est pas en ligne !");
 	    		  } else {
 	    			  System.out.println("Le joueur (" + playercheck + ") est en ligne !");
-	    		  }
+	    		  }*/
 	    		  
-	    		  b.savePlayerData("didier");
 	    		  
+	    		  SaveFriend.set("Test", "cc");
+	    		  SaveFriend.set("Test", "coc");
 	    		  //if(b.getProxy().getPlayer(strings[0]).isConnected() != false) {
 	    		  //ProxiedPlayer senderP = (ProxiedPlayer) sender;
 	    		  //ProxiedPlayer requestedP = b.getProxy().getPlayer(strings[0]);

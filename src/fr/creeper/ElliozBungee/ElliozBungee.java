@@ -9,8 +9,8 @@ import net.md_5.bungee.config.Configuration;
 import net.md_5.bungee.config.ConfigurationProvider;
 import net.md_5.bungee.config.YamlConfiguration;
 public class ElliozBungee extends Plugin {
-	String fileName = "playerfriends";
-	Configuration config = getConfig();
+	//String fileName = "playerfriends";
+	//Configuration config = getConfig();
 	HashMap<ProxiedPlayer, ProxiedPlayer> friends = new HashMap<ProxiedPlayer, ProxiedPlayer>();
 	public void onEnable() {
 		System.out.println("Plugin Activé !");
@@ -23,7 +23,7 @@ public class ElliozBungee extends Plugin {
 	public void onDisable() {
 		System.out.println("Plugin Désactivé !");
 	}
-	public void createFile(){
+	/*public void createFile(){
         if(!getDataFolder().exists()){
             getDataFolder().mkdir();
         }
@@ -46,7 +46,7 @@ public class ElliozBungee extends Plugin {
         }
     }
 	
-	public void savePlayerData(String strings){
+	public void savePlayerData(String[] string, String[] string){
         config.set(strings[0], strings[1]);
 		saveConfig(config);
     }
@@ -65,5 +65,5 @@ public class ElliozBungee extends Plugin {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
+    } */
 }
