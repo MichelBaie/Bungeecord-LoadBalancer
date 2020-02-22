@@ -49,7 +49,7 @@ public class JoinFriendCommand extends Command {
 	    		 requestedP.sendMessage(deny);
 	    		 
 	    		 
-	    		 
+	    		
 	    		 
 	    		 
 	    		  }
