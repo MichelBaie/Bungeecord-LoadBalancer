@@ -8,6 +8,8 @@ import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.TextComponent;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
 import net.md_5.bungee.api.plugin.Command;
+import net.md_5.bungee.config.Configuration;
+import net.md_5.bungee.config.YamlConfiguration;
 
 public class JoinFriendCommand extends Command {
 	ElliozBungee b;
@@ -19,7 +21,6 @@ public class JoinFriendCommand extends Command {
 	 @SuppressWarnings("deprecation")
 	@Override
 	  public void execute(CommandSender sender, String[] strings) {
-<<<<<<< HEAD
 	    	  if(sender instanceof ProxiedPlayer) {
 	    		  
 	    		  String playercheck = strings[0];
@@ -30,14 +31,13 @@ public class JoinFriendCommand extends Command {
 	    		  } else {
 	    			  System.out.println("Le joueur (" + playercheck + ") est en ligne !");
 	    		  }
-	    		 
+	    		  
+	    		  b.savePlayerData("didier");
 	    		  
 	    		  //if(b.getProxy().getPlayer(strings[0]).isConnected() != false) {
 	    		  //ProxiedPlayer senderP = (ProxiedPlayer) sender;
 	    		  //ProxiedPlayer requestedP = b.getProxy().getPlayer(strings[0]);
-	    		  //SaveFriends = new Saver(new File("playerfriends.properties"));
-=======
-		
+	    		  //SaveFriends = new Saver(new File("playerfriends.properties"));		
 	      if(strings.length <= 1) {
 	    	  if(sender instanceof ProxiedPlayer) {
 	    		  
@@ -46,7 +46,6 @@ public class JoinFriendCommand extends Command {
 
 	    		  
 	    		  SaveFriends = new Saver(new File("playerfriends.properties"));
->>>>>>> 9bcc0981261ac694df50d13e62a951f2f6c33199
 	    		 //SaveFriends.set(sender.getName(), requestedP.getName());
 	    		  
 	    		  
@@ -80,3 +79,6 @@ public class JoinFriendCommand extends Command {
 	    	  }
 	  }
 
+	    	  }
+	 }
+}
