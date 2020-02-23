@@ -10,8 +10,12 @@ import net.md_5.bungee.api.connection.ProxiedPlayer;
 import net.md_5.bungee.api.plugin.Command;
 
 public class CreateCommand extends Command {
-	public CreateCommand() {
-		super("join", "");
+
+
+	
+
+	public CreateCommand(String name) {
+		super(name);
 		// TODO Auto-generated constructor stub
 	}
 

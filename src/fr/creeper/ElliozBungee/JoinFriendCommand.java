@@ -10,6 +10,12 @@ import net.md_5.bungee.api.connection.ProxiedPlayer;
 import net.md_5.bungee.api.plugin.Command;
 
 public class JoinFriendCommand extends Command {
+	public JoinFriendCommand(String name) {
+		super(name);
+		// TODO Auto-generated constructor stub
+	}
+
+
 	ElliozBungee b;
 	Saver SaveFriends;
 	public static Saver SaveFriendDemandeur;
@@ -26,9 +32,7 @@ public class JoinFriendCommand extends Command {
 	public String playerecoisfriendslot4 = SaveFriendReceveur.get("friendslot4");
 	public String playerecoisfriendslot5 = SaveFriendReceveur.get("friendslot5");
 	public String playerecoisinvitewaiting = SaveFriendReceveur.get("invitewaiting");
-	public JoinFriendCommand() {
-		super("friend","");
-	}
+	
 
 	 @SuppressWarnings("deprecation")
 	@Override

@@ -10,11 +10,11 @@ public class ElliozBungee extends Plugin {
 	HashMap<ProxiedPlayer, ProxiedPlayer> friends = new HashMap<ProxiedPlayer, ProxiedPlayer>();
 	public void onEnable() {
 		System.out.println("Plugin Activé !");
-	    getProxy().getPluginManager().registerCommand(this, new TestCommand());
-	    getProxy().getPluginManager().registerCommand(this, new CreateCommand());
-	    getProxy().getPluginManager().registerCommand(this, new JoinFriendCommand());
-	    getProxy().getPluginManager().registerCommand(this, new FriendDeny());
-	    getProxy().getPluginManager().registerCommand(this, new FriendAccept());
+	    getProxy().getPluginManager().registerCommand(this, new TestCommand(null));
+	    getProxy().getPluginManager().registerCommand(this, new CreateCommand(null));
+	    getProxy().getPluginManager().registerCommand(this, new JoinFriendCommand(null));
+	    getProxy().getPluginManager().registerCommand(this, new FriendDeny(null));
+	    getProxy().getPluginManager().registerCommand(this, new FriendAccept(null));
 	}
 	public void onDisable() {
 		System.out.println("Plugin Désactivé !");

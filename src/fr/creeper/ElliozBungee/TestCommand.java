@@ -9,13 +9,19 @@ import net.md_5.bungee.api.connection.ProxiedPlayer;
 import net.md_5.bungee.api.plugin.Command;
 
 public class TestCommand extends Command {
-	
-	
-	
-	public TestCommand() {
-		super("test", "");
+	public TestCommand(String name) {
+		super(name);
 		// TODO Auto-generated constructor stub
 	}
+
+
+
+
+	ElliozBungee p;
+	
+	
+
+	
 	@Override
     public void execute(CommandSender sender, String[] args) {
 		 
