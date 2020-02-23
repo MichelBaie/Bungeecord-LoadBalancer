@@ -24,17 +24,20 @@ public class JoinFriendCommand extends Command {
 	@Override
 	  public void execute(CommandSender sender, String[] strings) {
 	    	  if(sender instanceof ProxiedPlayer) {
+	    		  String playerecoisonline = "null";
 	    		  CommandSender playerdemandeur = sender;
 	    		  String playerecois = strings[0];
 	    		  SaveFriendDemandeur = new Saver(new File(playerdemandeur + "-friends.properties"));
-	    		  SaveFriendReceveur = new Saver(new File(playerdemandeur + "-friends.properties"));
+	    		  SaveFriendReceveur = new Saver(new File(playerecois + "-friends.properties"));
 	    		  
 	    		  ProxiedPlayer player = ProxyServer.getInstance().getPlayer(playerecois);
 	    		  if (player == null)
 	    		  {
 	    		      System.out.println("Le joueur (" + playerecois + ") n'est pas en ligne !");
+	    		      playerecoisonline = "false";
 	    		  } else {
 	    			  System.out.println("Le joueur (" + playerecois + ") est en ligne !");
+	    			  playerecoisonline = "true";
 	    		  }
 	    		  String playerdemandeurfriendslot1 = SaveFriendDemandeur.get("friendslot1");
 	    		  String playerdemandeurfriendslot2 = SaveFriendDemandeur.get("friendslot2");
@@ -47,21 +50,48 @@ public class JoinFriendCommand extends Command {
 	    			 SaveFriendDemandeur.set("friendslot1", "");
 	    			 System.out.println("Slot 1 de " + playerdemandeur + " : Définit !.");
 	    		  }
+	    		  if(playerdemandeurfriendslot2 == null) {
+		    			 System.out.println("Slot 2 de " + playerdemandeur + " : Pas définit, mise en place.");
+		    			 SaveFriendDemandeur.set("friendslot2", "");
+		    			 System.out.println("Slot 2 de " + playerdemandeur + " : Définit !.");
+		    		  }
+	    		  if(playerdemandeurfriendslot3 == null) {
+		    			 System.out.println("Slot 3 de " + playerdemandeur + " : Pas définit, mise en place.");
+		    			 SaveFriendDemandeur.set("friendslot3", "");
+		    			 System.out.println("Slot 3 de " + playerdemandeur + " : Définit !.");
+		    		  }
+	    		  if(playerdemandeurfriendslot4 == null) {
+		    			 System.out.println("Slot 4 de " + playerdemandeur + " : Pas définit, mise en place.");
+		    			 SaveFriendDemandeur.set("friendslot4", "");
+		    			 System.out.println("Slot 4 de " + playerdemandeur + " : Définit !.");
+		    		  }
+	    		  if(playerdemandeurfriendslot5 == null) {
+		    			 System.out.println("Slot 5 de " + playerdemandeur + " : Pas définit, mise en place.");
+		    			 SaveFriendDemandeur.set("friendslot5", "");
+		    			 System.out.println("Slot 5 de " + playerdemandeur + " : Définit !.");
+		    		  }
+	    		  
+	    		  
+	    		  
 	    		  //SaveFriend.set("Test", "cc");
 	    		  //SaveFriend.set("Test", "coc");
-	    		  //if(b.getProxy().getPlayer(strings[0]).isConnected() != false) {
-	    		  //ProxiedPlayer senderP = (ProxiedPlayer) sender;
-	    		  //ProxiedPlayer requestedP = b.getProxy().getPlayer(strings[0]);
-	    		  //SaveFriends = new Saver(new File("playerfriends.properties"));		
-	      //if(strings.length <= 1) {
-	    	  //if(sender instanceof ProxiedPlayer) {
+	    		  if (playerecoisonline == "false")
+	    			  
+	    		  {
+	    		      ProxiedPlayer senderP = (ProxiedPlayer) sender;
+	    			  senderP.sendMessage("Le joueur " + playerecois + " n'est pas en ligne actuellement !");
+	    		  } else {
+	    			  System.out.println("Le joueur (" + playerecois + ") est en ligne !");
+	    		  }
 	    		  
-	    		  //ProxiedPlayer senderP = (ProxiedPlayer) sender;
-                  //ProxiedPlayer requestedP = ProxyServer.getInstance().getPlayer(strings[0]);
+	    		  if(sender instanceof ProxiedPlayer) {
+	    		  
+	    		  ProxiedPlayer senderP = (ProxiedPlayer) sender;
+                  ProxiedPlayer requestedP = ProxyServer.getInstance().getPlayer(strings[0]);
 
 	    		  
-	    		  //SaveFriends = new Saver(new File("playerfriends.properties"));
-	    		 //SaveFriends.set(sender.getName(), requestedP.getName());
+	    		  SaveFriends = new Saver(new File("playerfriends.properties"));
+	    		 SaveFriends.set(sender.getName(), requestedP.getName());
 	    		  
 	    		  
 	    		  
@@ -89,7 +119,7 @@ public class JoinFriendCommand extends Command {
 	    		//b.friends.put(requestedP, senderP);
 	    		 
 	    		 
-	    		  //}
+	    		  }
 	    		  
 	    	  }
 	  }
