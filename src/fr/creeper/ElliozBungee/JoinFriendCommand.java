@@ -8,8 +8,6 @@ import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.TextComponent;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
 import net.md_5.bungee.api.plugin.Command;
-import net.md_5.bungee.config.Configuration;
-import net.md_5.bungee.config.YamlConfiguration;
 
 public class JoinFriendCommand extends Command {
 	ElliozBungee b;
@@ -116,7 +114,7 @@ public class JoinFriendCommand extends Command {
 			    		  }
 		    		  if(playerecoisinvitewaiting == null) {
 			    			 System.out.println("Le joueur " + playerecois + " n'a pas d'invitation en attente, mise en place.");
-			    			 SaveFriendReceveur.set("invitewaiting", "");
+			    			 SaveFriendReceveur.set("invitewaiting", playerdemandeur.getName());
 			    		  }
 	    		  
 	    		  
