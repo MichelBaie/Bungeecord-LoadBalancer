@@ -79,7 +79,7 @@ public class CreateCommand extends Command {
 				player.connect(target);
 			}
 		} else {
-			// Le Fichier Vient Juste D'être Créé
+			// Le Fichier Vient Juste D'ï¿½tre Crï¿½ï¿½
 			SavePlayerWorld.set(player.getDisplayName(), "Dev" + Srv);
 			target = ProxyServer.getInstance().getServerInfo(SavePlayerWorld.get(player.getDisplayName()));
 			player.connect(target);
